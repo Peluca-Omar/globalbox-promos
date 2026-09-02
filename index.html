@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#071b33" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Globalbox Promo" />
+    <title>Globalbox Promo IA</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icon.svg" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a class="brand" href="#"><span class="mark">G</span><span>GLOBALBOX<small>.EC</small></span></a>
+      <div class="header-actions"><span class="free-badge">100% GRATIS</span><button class="install-app" id="install-app" type="button" hidden>Instalar app</button></div>
+    </header>
+
+    <main>
+      <section class="intro">
+        <p class="kicker">CREADOR INTELIGENTE DE PROMOCIONES</p>
+        <h1>Sube la foto.<br /><em>La promo se crea sola.</em></h1>
+        <p>Pega o selecciona una imagen con precios visibles. La app lee la oferta, calcula el descuento y prepara una pieza lista para publicar.</p>
+      </section>
+
+      <section class="maker">
+        <div class="panel setup">
+          <div class="panel-title"><span>1</span><div><h2>Tu imagen</h2><p>Con precio anterior y precio actual visibles</p></div></div>
+          <label class="drop-zone" id="drop-zone" for="image-input" tabindex="0">
+            <input id="image-input" type="file" accept="image/*" />
+            <span class="upload-arrow">↑</span>
+            <strong>Selecciona, pega o arrastra una imagen</strong>
+            <small>PNG, JPG o WEBP · máximo 10 MB</small>
+          </label>
+
+          <div class="status" id="status" aria-live="polite">
+            <span class="status-dot"></span><span id="status-text">Esperando una imagen</span>
+          </div>
+          <div class="progress" id="progress" hidden><span id="progress-bar"></span></div>
+          <button class="primary" id="analyze" type="button" disabled>Analizar nuevamente</button>
+
+          <div class="panel-title style-title"><span>2</span><div><h2>Elige el estilo</h2><p>La información se actualiza al instante</p></div></div>
+          <div class="styles" role="radiogroup" aria-label="Estilo de la promoción">
+            <button class="style selected" data-style="impact" type="button"><i></i><span><strong>Impacto</strong><small>Azul y amarillo</small></span></button>
+            <button class="style" data-style="hot" type="button"><i></i><span><strong>Explosivo</strong><small>Coral y crema</small></span></button>
+            <button class="style" data-style="fresh" type="button"><i></i><span><strong>Fresco</strong><small>Verde y lima</small></span></button>
+          </div>
+
+          <label class="brand-upload" for="logo-input">
+            <input id="logo-input" type="file" accept="image/png,image/jpeg,image/webp" />
+            <span class="brand-upload-icon">G</span>
+            <span><strong>Agregar logo de Globalbox</strong><small id="logo-name">Usar PNG o JPG</small></span>
+            <b>Elegir</b>
+          </label>
+
+          <div class="formats">
+            <button class="format selected" data-format="post" type="button">Post cuadrado</button>
+            <button class="format" data-format="story" type="button">Historia</button>
+          </div>
+
+          <details class="corrections">
+            <summary>Revisar o corregir datos detectados</summary>
+            <div class="fields">
+              <label>Producto<input id="product" value="PRODUCTO EN OFERTA" maxlength="35" /></label>
+              <label>Precio anterior ($)<input id="old-price" type="number" value="79.99" min="0" step="0.01" /></label>
+              <label>Precio actual ($)<input id="new-price" type="number" value="49.99" min="0" step="0.01" /></label>
+              <label>Frase promocional<select id="phrase"></select></label>
+            </div>
+          </details>
+        </div>
+
+        <div class="preview-area">
+          <div class="preview-label"><span>VISTA PREVIA</span><span id="size-label">1080 × 1080 PX</span></div>
+          <div class="canvas-wrap"><canvas id="canvas" width="1080" height="1080"></canvas></div>
+          <button class="download" id="download" type="button" disabled>Descargar promoción en PNG</button>
+          <p class="privacy">La imagen se procesa en este dispositivo y no se guarda en ningún servidor.</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
