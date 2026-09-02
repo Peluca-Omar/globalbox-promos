@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#071b33"/>
+  <circle cx="256" cy="222" r="142" fill="#ffc52f"/>
+  <path d="M329 148c-27-25-62-39-101-39-82 0-149 66-149 148s67 149 149 149c40 0 77-16 104-42l-42-47c-16 15-37 23-60 23-46 0-83-37-83-83 0-45 37-82 83-82 23 0 43 8 58 23z" fill="#071b33"/>
+  <path d="M230 235h132v121c-28 32-75 50-124 50v-63c23 0 44-6 60-17v-31h-68z" fill="#071b33"/>
+  <text x="256" y="468" fill="#fff" font-family="Arial,sans-serif" font-size="48" font-weight="700" text-anchor="middle">PROMO</text>
+</svg>
