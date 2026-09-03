@@ -112,6 +112,19 @@ function drawImageCover(image, x, y, width, height) {
   ctx.drawImage(image, x + (width - w) / 2, y + (height - h) / 2, w, h);
 }
 
+function drawImageContain(image, x, y, width, height) {
+  // Fill unused space softly while keeping the original image fully visible.
+  ctx.save();
+  ctx.filter = 'blur(28px)';
+  ctx.globalAlpha = .24;
+  drawImageCover(image, x - 30, y - 30, width + 60, height + 60);
+  ctx.restore();
+
+  const scale = Math.min(width / image.width, height / image.height);
+  const w = image.width * scale; const h = image.height * scale;
+  ctx.drawImage(image, x + (width - w) / 2, y + (height - h) / 2, w, h);
+}
+
 function drawBrand(theme) {
   const centerX = 92; const centerY = 82; const radius = 42;
   ctx.save();
@@ -178,7 +191,7 @@ function render() {
   roundedRect(58, imageY, 964, imageHeight, 22, '#e8e9e6');
   if (sourceImage) {
     ctx.save(); ctx.beginPath(); ctx.roundRect(58, imageY, 964, imageHeight, 22); ctx.clip();
-    drawImageCover(sourceImage, 58, imageY, 964, imageHeight); ctx.restore();
+    drawImageContain(sourceImage, 58, imageY, 964, imageHeight); ctx.restore();
   } else {
     drawText('TU IMAGEN APARECERÁ AQUÍ', 540, imageY + imageHeight / 2, 27, '#87909a', 700, 'center');
   }
