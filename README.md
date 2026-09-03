@@ -17,6 +17,8 @@ No requiere clave de API, cuenta ni tarjeta. La primera vez necesita internet pa
 5. Si un dato fue leído incorrectamente, abre **Revisar o corregir datos detectados**.
 6. Descarga la promoción en PNG.
 
+La fotografía se ajusta automáticamente para mostrarla completa, centrada y sin deformaciones. Si su proporción no coincide con el marco, el espacio restante utiliza un fondo suave creado a partir de la misma imagen.
+
 Las imágenes generadas incluyen el acceso visual a WhatsApp `0939669867` y a Instagram `@globalbox.ec`, además de un banco de 35 frases promocionales seleccionadas automáticamente o de forma manual.
 
 ## Limitaciones reales
